@@ -1,5 +1,5 @@
 {
-    "URL": "http://172.28.203.162:5000",
+    "URL": "http://172.31.208.77:5000",
     "PORT": 5000,
     "PRIVATE_KEY":"codeforindia",
     "EMAIL_SMTP": {

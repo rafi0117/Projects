@@ -40,7 +40,7 @@ router.post("/register", userRegisterValidatorRules(), errorMiddleware, async (r
         //Avoid Double Registration
         let mailFound = await Users.findOne({ email });
         if (mailFound) {
-            res.status(409).json({ "error": "Email Already Registered" })
+           return res.status(409).json({ "error": "Email Already Registered" })
         }
 
         password = await bcrypt.hash(password, 12);
@@ -54,7 +54,7 @@ router.post("/register", userRegisterValidatorRules(), errorMiddleware, async (r
         // const user = new Users(user_data);
         await user.save();
 
-        res.status(200).json({ "success": "Register is UP" })
+        return res.status(200).json({ "success": "Register is UP" })
 
     } catch (error) {
         console.error(error);
