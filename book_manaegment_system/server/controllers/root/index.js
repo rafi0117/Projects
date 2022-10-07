@@ -1,17 +1,20 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import config from "config";
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken";
+
 
 import randomString from "../../utils/randomString.js";
+
 //IMPORT Models
 
-import Users from "../../model/users/index.js";
-import Admin from "../../model/Admin/index.js";
+import Users from "../../models/Users/index.js";
+import Admin from "../../models/Admin/index.js";
 
 //IMport Validations
 
-import { userRegisterValidatorRules, loginValidation, errorMiddleware } from "../../middlewares/validation/index.js";
+
+import { userRegisterValidatorRules, userLoginValidatorRules, errorMiddleware } from "../../middlewares/validation/index.js";
 
 const router = express.Router();
 
@@ -25,10 +28,9 @@ Validation :
         Email address is required field
         Password is not Empty
         Description: User Signup
-
 */
 
-router.post("/login", loginValidation(), errorMiddleware, async (req, res) => {
+router.post("/login", userLoginValidatorRules(), errorMiddleware, async (req, res) => {
 
     try {
         let { email, password } = req.body;

@@ -1,14 +1,15 @@
 import mongoose from "mongoose";
+
 let bookSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
     },
-    Author: {
+    author: {
         type: String,
         required: true,
     },
-    coverImagrUrl: {
+    coverImageUrl: {
         type: String,
         required: true,
     },
@@ -17,7 +18,7 @@ let bookSchema = new mongoose.Schema({
         unique: true,
         required: true
     },
-    PageCount: {
+    pageCount: {
         type: Number,
         required: true
     },
@@ -29,5 +30,6 @@ let bookSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-});  
+});
+
 export default mongoose.model("Book", bookSchema, "book");

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 let adminSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -22,4 +23,5 @@ let adminSchema = new mongoose.Schema({
     default: "admin"
   }
 });
+
 export default mongoose.model("Admin", adminSchema, "admin");

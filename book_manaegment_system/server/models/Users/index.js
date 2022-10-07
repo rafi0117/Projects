@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 let userSchema = new mongoose.Schema({
   firstname: {
     type: String,
@@ -34,4 +35,5 @@ let userSchema = new mongoose.Schema({
     default: "user"
   }
 });
+
 export default mongoose.model("User", userSchema, "user");

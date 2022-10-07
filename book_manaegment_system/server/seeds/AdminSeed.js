@@ -35,9 +35,9 @@ let adminModel = new mongoose.model("Admin", adminSchema, "admin");
 async function insertAdmins() {
     try {
         let admin = {
-            name: "Abdul Rafi",
-            password: "Rafi@0117",
-            email: "itsabdulrafi@gmail.com",
+            name: "Adnan Ali Khan",
+            password: "Temp@123",
+            email: "adnan@code.in",
             role: "admin"
         }
         admin.password = await bcrypt.hash(admin.password, 12)

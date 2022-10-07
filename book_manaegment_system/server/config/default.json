@@ -1,7 +1,6 @@
 {
-    "URL": "http://172.31.208.77:5000",
+    "URL": "http://172.30.100.129:5000",
     "PORT": 5000,
-    "PRIVATE_KEY":"codeforindia",
     "EMAIL_SMTP": {
       "HOST": "mail.csmafia.com",
       "AUTH": {
@@ -9,7 +8,7 @@
         "PASSWORD": "codeforindiaFTW"
       },
       "PORT": 465
-    }
+    },
+    "PRIVATE_KEY": "codeforindia",
+    "DB_URI": "mongodb+srv://abdulrafi_04:Rafi0117@raficfi.zki6qm3.mongodb.net/Book__Management"
   }
-  
-  

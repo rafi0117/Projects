@@ -19,23 +19,13 @@ function userRegisterValidatorRules() {
     ]
 }
 
-function addbookvalidations() {
+function userLoginValidatorRules() {
     return [
-body("title","Title is Required").isString({min:2}),
-body("Author","Author is Required").isString({min:6}),
-body("coverImagrUrl","Image URL is Required").isURL(),
-body("publisher","Publisher Name is Required").isString({min:2}),
-body("synopsis","Synopsis is Required").isString({min:2}),
-body("PageCount","Number is Required").notEmpty({min:2}),
+        body("password", "Password is Required").notEmpty(),
+        body("email", "Email is Required").isEmail()
     ]
 }
 
-function loginValidation() {
-    return [
-        body('email', "Email Is Required").isEmail(),
-        body('password', "Passowrd is Required").notEmpty()
-    ]
-}
 
 function errorMiddleware(req, res, next) {
     const errors = validationResult(req);
@@ -45,9 +35,8 @@ function errorMiddleware(req, res, next) {
     return next();
 }
 
-
-
 export {
     userRegisterValidatorRules,
-    errorMiddleware,loginValidation,addbookvalidations
+    userLoginValidatorRules,
+    errorMiddleware
 }

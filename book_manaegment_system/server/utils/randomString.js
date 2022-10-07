@@ -9,4 +9,4 @@ function randomString(length) {
     return result;
 }
 
-export default randomString;
+export default randomString
