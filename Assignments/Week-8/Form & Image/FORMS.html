@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body { display: inline;
+            background-image: linear-gradient(to right, rgb(119, 90, 224) , rgb(255, 255, 255));
+             padding: 10px;
+             }
+             .forms{
+                border-style:double;
+                padding: 10px;
+                margin: 20px;
+                font-size: large;
+                width: 40%;
+                float: left;
+                scroll-behavior: auto;
+                color: black;
+             }
+             #color_hover:hover{
+                background-color: aqua;
+                cursor: pointer;
+                
+             }
+             #color_hover{
+                font-size: large;
+             }
+            #img{
+               width: 35%; 
+               float:center;
+               margin:  8%;
+               padding-right: 50px;
+            }
+            #fname{
+                text-size-adjust: large;
+            }
+            #lname{
+                text-size-adjust: large;
+            }
+            @media only screen and (max-width: 600px){
+                #img{
+                    display:flex;
+                   margin: 28%;
+                   
+
+                }
+                .forms{
+                    /* padding-left: 25%; */
+                    margin: 25%;
+                    text-align: center;
+                }
+            }
+
+    </style>
+</head>
+<body>
+    <center>
+        <h1><u>APPLICATION FORM</u></h1>
+    </center>
+
+    <div class="forms">
+    <form action="/action_page.php">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" placeholder="Enter your first name"><br><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" placeholder="Enter your last name"><br><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" placeholder="Enter your email"><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
+        <label for="website">website:</label><br>
+        <input type="url" id="password" name="website" placeholder="Enter your website"><br><br>
+        <label for="longtext" id="top">Your reasons:</label><br>
+        <textarea name="formatfortext" placeholder="Enter your text"></textarea><br><br>
+        <p>Please select your gender:</p>
+          <input type="radio" id="html" name="gender" value="HTML">
+          <label for="html">Male</label><br>
+          <input type="radio" id="css" name="gender" value="CSS">
+          <label for="css">Female</label><br>
+        <p>Select your age</p>
+        <label class="container">18-25
+        <input type="checkbox" checked="checked">
+        <span class="checkmark"></span>
+        </label>
+        <label class="container">25-30
+        <input type="checkbox">
+        <span class="checkmark"></span>
+        </label>
+        <label class="container">30-35
+        <input type="checkbox">
+        <span class="checkmark"></span>
+        </label>
+        <label class="container">35-40
+        <input type="checkbox">
+        <span class="checkmark"></span><br><br>
+        <label for="language">Choose a language:</label>
+        <select name="language" id="language">
+        <option value="volvo">javascript</option>
+        <option value="saab">python</option>
+        <option value="mercedes">C languge</option>
+        <option value="audi">C++</option>
+        </select><br><br>
+        <label for="myfile">Select a file:</label>
+        <input type="file" id="myfile" name="myfile"><br><br>
+        <label for="date">Select a date:</label>
+        <input type="date" id="date" name="date"><br><br>
+        <input type="submit" id="color_hover" value="Submit">
+      </form>
+      </div>
+      <div>
+        <img src="LOGO.png" alt="image" id="img">
+      </div>
+</body>
+</html>

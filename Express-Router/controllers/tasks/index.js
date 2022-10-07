@@ -20,7 +20,7 @@ router.post("/", authMiddleware, async (req, res) => {
         }
 
         //Check Req.body
-      let { task_name, deadline } = req.body;
+        let { task_name, deadline } = req.body;
 
         if (!task_name || !deadline) {
             return res.status(400).json({ error: "Some Fields are Missing" });
@@ -41,7 +41,7 @@ router.post("/", authMiddleware, async (req, res) => {
 
         //Check Validation for 30 mins and 30 Days
         let difference = utc_deadline - present_time;
-        
+
 
         //Difference in Minutes
         let mins = difference / (1000 * 60)
@@ -70,8 +70,8 @@ router.post("/", authMiddleware, async (req, res) => {
         reminders.push(reminder1, reminder2, reminder3, utc_deadline);
         // console.log(reminders);
 
-let userFound= await userModel.findOne(payload.user_id)
-     
+        let userFound = await userModel.findOne(payload.user_id)
+
         // console.log(userFound);
         let task_id = randomString(14)
         let task_data = {
@@ -104,7 +104,7 @@ let userFound= await userModel.findOne(payload.user_id)
         console.log(userFound.tasks);
         userFound.tasks.push(task_data);
 
-        
+
         await userFound.save();
         res.status(200).json({ success: "Task was Added" })
     } catch (error) {
@@ -124,36 +124,36 @@ router.get("/tasks", (req, res) => {
 
 router.delete("/:task_id", async (req, res) => {
     try {
-       
+
         let task_id = req.params.task_id;
         console.log(task_id);
-    
+
         //Check for Authorisation
         let token = req.headers["auth-token"];
         if (!token) {
-          return res.status(401).json({ error: "Unauthorised Access" });
+            return res.status(401).json({ error: "Unauthorised Access" });
         }
         const payload = jwt.verify(token, "codeforindia");
         // console.log(payload);
         if (!payload) {
-          return res.status(401).json({ error: "Unauthorised Access" });
+            return res.status(401).json({ error: "Unauthorised Access" });
         }
-    
-   
-let userFound= await userModel.findOne(payload.user_id)
+
+
+        let userFound = await userModel.findOne(payload.user_id)
         // console.log(userFound);
-    
+
         //Find Index of Given Task
         let taskIndex = userFound.tasks.findIndex((ele) => ele._id == task_id);
         // console.log(taskIndex);
-    
+
         if (taskIndex == -1) {
-          return res.status(404).json({ error: "Task Not Found" });
+            return res.status(404).json({ error: "Task Not Found" });
         }
-    
+
         //Delete Element with Given Index from an Array
         userFound.tasks.splice(taskIndex, 1);
-        
+
         await userFound.save();
         res.status(200).json({ "success": "TASK DELETE is UP" });
     } catch (error) {

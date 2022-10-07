@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Base64 cli Application</title>
+	</head>
+	<body>
+		<h1 class="rt">Base64 Converter</h1>
+		<div class="main">
+			<div class="one">
+				<h1>ENCODER</h1>
+			</div>
+			<div class="two">
+				<label>Enter String to Encode</label>
+				<input type="text" name="char" id="encode" placeholder="Enter Text Here"/>
+				<button class="button button1" onclick="Encode()">Encode</button>
+			</div>
+			<div class="three">
+				<label>OUTPUT:</label>
+				<span>
+
+					<h1 id="Encoded"></h1>
+				</span>
+			</div>
+
+			<div class="four">
+				<h1>DECODER</h1>
+			</div>
+			<div class="five">
+				<label>Enter String to Decode</label>
+				<input type="text" name="char" id="decode" />
+				<button class="button button2" onclick="Decode()">Decode</button>
+			</div>
+			<div class="six">
+				<label>OUTOUT:</label><br>
+				<span>
+					<h1 id="Decoded"></h1>
+				</span>
+			</div>
+		</div>
+	</body>
+	<script src="Encoding.js"></script>
+	<script src="Decoding.js"></script>
+</html>

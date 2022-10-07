@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font-Converter</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Lato:wght@300&family=Michroma&family=Qwitcher+Grypen&family=Silkscreen&display=swap');
+
+        /* *{
+            align-items: center;
+            vertical-align:bottom ;
+        } */
+    
+        h1{
+            font-family: 'Qwitcher Grypen', cursive;
+        }
+
+        .header{
+            background-color: blueviolet;
+            color:aliceblue;
+            text-align: center;
+            border: 3px black solid;
+            border-radius: 10px;
+            padding: 5px;
+            
+        }
+
+        .container{
+            padding: 10px;
+            margin: auto;
+            border: 3px purple solid; 
+            border-radius: 10px;
+            width: 50%;
+
+        }
+
+        .center{
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer{
+            text-align: center;
+        }
+
+        .form{
+            background-color: rgb(228, 199, 255);
+            border: 3px black solid;
+            border-radius: 10px;
+            padding: 10px;
+
+        }
+
+        .label{
+            font-family: 'Qwitcher Grypen', cursive;
+            font-size: xx-large;
+            font-weight: 1000;
+            padding: 50px;
+            text-decoration:overline  white;
+         }
+
+        ::-webkit-input-placeholder { /* Edge */
+             color: grey;
+             font-size: large;
+        }
+
+        input[type=submit] {
+        width: px;
+        font-size: larger;
+        background-color:black;
+        color: white;
+        padding: 10px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        text-decoration:underline;
+        text-transform: uppercase;   
+                }
+
+                input[type=submit]:hover{
+            background-color: white;
+            border:3px #202020 solid;
+            
+            color: black;
+        }
+
+        .visible{
+            color: black;
+        }
+      
+        a{
+            color: black;
+        }
+        textarea{
+            border-radius: 5px;
+            border: 2px black solid;
+            width: 50%;
+            font-size: larger;
+        }
+
+
+            .container {
+            
+            background-color: violet;
+            animation-name: example;
+            animation-duration: 8s;
+            animation-iteration-count: 3
+            }
+
+                @keyframes example {
+                    50%   {background-color:#f2eff1;}
+                    100%   {background-color:violet;}
+                    
+                }
+
+             @media only screen and (max-width: 600px) {
+            body {
+                width: 900px;
+                height: 90%;
+                padding: 5px;
+                margin: 50% 0;
+                align-items: center;
+            }
+            textarea{
+                width:fit-content;
+            }
+            }
+
+    </style>
+</head>
+<body>
+    <div class="container ">
+        <h1 class="header">Font Converter</h1>
+     <div  class="center">
+        <form onsubmit="changeFont(event)" class="form">
+        <label class="label" for="textinput">Enter Text Here</label><br>
+        <textarea id="textinput" name="textinput" rows="4" cols="50" placeholder="Enter Text Here"></textarea>
+        <br><br>
+        <label for="cars" class="sfont">Select Font:</label>
+        <select name="fonts" id="fonts">
+          <!-- <option value="Select"></option> -->
+          <option value="'Aboreto', cursive">Aboreto</option>
+          <option value="'Lato', sans-serif">Lato</option>
+          <option value="'Qwitcher Grypen', cursive">Qwitcher Grypen</option>
+          <option value="'Silkscreen', cursive">Silkscreen</option>
+          <option value="'Michroma', sans-serif">Michroma</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit"><br><br>
+        <textarea name="newtext" id="newtext" cols="50" rows="4" placeholder="Here is Your Result" readonly></textarea>
+      </form>
+    </div><br>
+    <footer class="footer visible">
+        <a href="https://codeforindia.com" target="_blank">Code For India</a><br>
+        &copy; Copyright All Right Reserved
+        <span id="date"></span>
+    </footer>
+    </div>
+    <script>
+        document.getElementById("date").innerText = new Date().getFullYear();
+       
+        function changeFont(){
+            event.preventDefault();
+            let text = document.getElementById("textinput").value;
+            console.log(text)
+            let fontname = document.getElementById("fonts").value;
+            console.log(fontname);
+
+            let formattedText = document.getElementById("newtext");
+            formattedText.innerText = text;
+            formattedText.style.fontFamily = fontname;
+        }
+    </script>
+</body>
+</html>

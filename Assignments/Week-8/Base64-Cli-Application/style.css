@@ -1,0 +1,167 @@
+* {
+	padding: 0;
+	margin: 2px 2px;
+}
+body {
+	background-color: rgb(136, 147, 243);
+}
+
+.main {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(13, 1fr);
+	gap: 2px;
+	/* min-height: 1; */
+}
+
+.rt {
+	background-color: black;
+	grid-column: 1 / -1;
+	margin: 5px;
+	text-align: center;
+	color: aliceblue;
+	min-width: 250px;
+    ;
+}
+.one {
+	grid-column: 1 / -1;
+text-align: center;
+}
+.two {
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	gap: 5px;
+	grid-column: 1 / 2;
+	grid-row: 2 / 7;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(210, 214, 214);
+}
+.three {
+    padding-left:5px;
+	grid-column: 2 / -1;
+	grid-row: 2 / 7;
+	word-wrap: break-word;
+	background-color: rgb(210, 214, 214);
+	border-radius: 10px;
+	word-break: break-all;
+}
+.three span{
+	height: 90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.three label {
+	font-weight: bold;
+	font-size: inherit;
+}
+
+.four {
+	grid-column: 1 / -1;
+	grid-row: 7 / 8;
+    text-align: center;
+}
+.five {
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	gap: 5px;
+	grid-column: 1 / 2;
+	grid-row: 8 / 14;
+
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(210, 214, 214);
+}
+
+
+.six {
+    padding-left:5px;
+	grid-column: 2 / -1;
+	grid-row: 8 / 14;
+	background-color: rgb(210, 214, 214);
+	border-radius: 10px;
+}
+
+.six label {
+	font-weight: bold;
+	font-size: inherit;
+}
+
+.six span{
+	height: 90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#Encoded {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#Decoded {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.button.button1 {
+	background-color: black;
+	padding: 5px;
+	border-radius: 5px;
+	color: aliceblue;
+	text-align: center;
+	cursor: pointer;
+}
+.button.button2 {
+	background-color: black;
+	padding: 5px;
+	border-radius: 5px;
+	color: aliceblue;
+	text-align: center;
+	cursor: pointer;
+}
+
+.button.button1:hover {
+	background-color: rgb(255, 0, 255);
+}
+.button.button2:hover {
+	background-color: rgb(51, 64, 250);
+}
+
+.button:active {
+	background-color: #3e8e41;
+	transform: translateY(4px);
+}
+
+@media screen and (max-width: 480px) {
+	.main {
+		min-width: 280px;
+		display: flex;
+		flex-direction: column;
+		height: 100%;   
+		min-height: 100%;
+	}
+	.one {
+		height: 40px;
+	}
+	.two {
+		height: 165px;
+	}
+	.three {
+		height: 165px;
+	}
+	.four {
+		height: 40px;
+	}
+	.five {
+		height: 165px;
+	}
+	.six {
+		height: 165px;
+	}
+}

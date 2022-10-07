@@ -2,17 +2,10 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import config from "config";
-
-
 import randomString from "../../utils/randomString.js";
-//IMPORT Models
-
 import Users from "../../model/users/index.js";
 import book from "../../model/book/index.js"
 import generateToken from "../../middlewares/auth/index.js";
-// import authMiddleware from "../../middleware/auth/verifyToken.js";
-//IMport Validations
-
 import { userRegisterValidatorRules, loginValidation, errorMiddleware, addbookvalidations } from "../../middlewares/validation/index.js";
 
 const router = express.Router();
@@ -33,35 +26,35 @@ Validation :
 
 router.post("/register", userRegisterValidatorRules(), errorMiddleware, async (req, res) => {
 
+   
     try {
 
-        let { firstname, lastname, email, password } = req.body;
+        let { email, password } = req.body;
         // console.log(req.body);
         //Avoid Double Registration
-        let mailFound = await Users.findOne({ email });
-        if (mailFound) {
-           return res.status(409).json({ "error": "Email Already Registered" })
+        let userData = await Users.findOne({ email });
+        if (userData) {
+            return res.status(409).json({ "error": "Email Already Registered" })
+        }
+        userData = await Admin.findOne({ email });
+        if (userData) {
+            return res.status(409).json({ "error": "Email Already Registered" })
         }
 
-        password = await bcrypt.hash(password, 12);
-
-        let user_data = { firstname, lastname, email, password }
-        const user = new Users(user_data);
+        req.body.password = await bcrypt.hash(password, 12);
+        const user = new Users(req.body);
 
         user.userverifytoken = randomString(15);
-        // user.Books=[]
-
-        // const user = new Users(user_data);
         await user.save();
 
-        return res.status(200).json({ "success": "Register is UP" })
+        res.status(200).json({ "success": "User Registered Successfully" })
 
     } catch (error) {
         console.error(error);
         res.status(500).json({ "error": "Internal Server Error" })
     }
+});
 
-})
 
 router.post("/login", loginValidation(), errorMiddleware, async (req, res) => {
     try {
@@ -138,9 +131,9 @@ router.post("/AddBook", addbookvalidations(), errorMiddleware, async (req, res) 
     }
 })
 
-router.get("/searchBook",async(req,res)=>{
+router.get("/searchBook", async (req, res) => {
     try {
-        let book =await new book.find({})
+        let book = await new book.find({})
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: "Internal Server Error" })
